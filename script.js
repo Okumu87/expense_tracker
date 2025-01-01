@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   expenseForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const name = expenseNameInput.ariaValueMax.trim();
+    const name = expenseNameInput.value.trim();
     const amount = parseFloat(expenseAmountInput.value.trim());
 
     if (name !== "" && !isNaN(amount) && amount > 0) {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderExpenses() {
     expenseList.innerHTML = "";
     expenses.forEach((expense) => {
-      const li = document.createElement(li);
+      const li = document.createElement("li");
       li.innerHTML = `${expense.name} - $${expense.amount}
       <button data-id='${expense.id}'>Delete</button>`;
       expenseList.appendChild(li);
